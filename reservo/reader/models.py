@@ -2,23 +2,16 @@
 from urlparse import urlparse
 
 from django.db import models
-from django.contrib.auth.models import User
 
 class Story(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     url = models.URLField()
-    points = models.IntegerField(default=1)
-    moderator = models.ForeignKey(User, related_name='moderated_stories')
-    voters = models.ManyToManyField(User, related_name='liked_stories')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    @property
-    def domain(self):
-        return urlparse(self.url).netloc
+    score = models.IntegerField()
+    submitter = models.CharField(max_length=100)
+    timestamp = models.DateTimeField()
+    updated_at = models.DateTimeField(auto_now_add=True)
+    hn_id = models.IntegerField()
 
     def __unicode__(self):
         return self.title
-
-    class Meta:
-        verbose_name_plural = "stories"
