@@ -29,7 +29,7 @@ urlpatterns = patterns('',
     url(r'^avatar/', include('avatar.urls')),
 
     # Stories URL
-    url(r'^stories/', include('reader.urls')),
+    url(r'^stories/', include('reader.urls', namespace="stories")),
 
     # Your stuff: custom urls go here
 

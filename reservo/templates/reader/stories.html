@@ -1,0 +1,25 @@
+{% extends "base2.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Stories" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+
+        <h2>{% trans "Stories" %}</h2>
+
+        {% for story in stories %}
+          <p>{{ story.title }}</p>
+          <p>{{ story.url }}</p>
+          <p>{{ story.score }}</p>
+          <p>{{ story.submitter }}</p>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
