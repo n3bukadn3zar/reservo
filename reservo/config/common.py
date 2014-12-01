@@ -47,7 +47,7 @@ class Common(Configuration):
     # Apps specific for this project go here.
     LOCAL_APPS = (
         'users',
-        'reader', # custom users app
+        'writer', # custom users app
         # Your stuff: custom apps go here
     )
 
