@@ -28,8 +28,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable avatars
     url(r'^avatar/', include('avatar.urls')),
 
-    # Stories URL
+    # Writer URL
     url(r'^blog/', include('writer.urls', namespace="writer")),
+
+    # Stories
+    url(r'^stories/', include('reader.urls', namespace="reader")),
 
     # Your stuff: custom urls go here
 
